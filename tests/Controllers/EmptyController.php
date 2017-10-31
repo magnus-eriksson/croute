@@ -1,0 +1,4 @@
+<?php
+/**
+ * @routePrefix no-class
+ */

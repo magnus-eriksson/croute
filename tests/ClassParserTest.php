@@ -93,7 +93,6 @@ class ClassParserTest extends TestCase
         $this->assertEquals('getIndexBefore', $before[1], 'Invalid namespace before 2');
         $this->assertEquals('classfter', $after[0], 'Invalid namespace after 1');
         $this->assertEquals('postIndexAfter', $after[1], 'Invalid namespace after 2');
-
     }
 
 

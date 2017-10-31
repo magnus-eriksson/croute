@@ -59,6 +59,10 @@ class ClassParser
      */
     public function getRoutes()
     {
+        if (!$this->className) {
+            return [];
+        }
+
         $class = new ReflectionClass($this->className);
         $this->classAnnotations = $this->getAnnotations('class', $class);
 
