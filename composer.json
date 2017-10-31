@@ -1,0 +1,33 @@
+{
+    "name": "maer/croute",
+    "description": "Declare routes using class annotations",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Magnus Eriksson",
+            "email": "mange@reloop.se"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Maer\\Croute\\": "src/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=5.6"
+    },
+    "require-dev": {
+        "php": ">=7.0",
+        "phpunit/phpunit": "4.7.*",
+        "squizlabs/php_codesniffer": "^3.0"
+    },
+    "scripts": {
+        "cs": "./vendor/bin/phpcs --standard=PSR2 --extensions=php --ignore=vendor/,tests/ -n -s ./",
+        "phpunit": "./vendor/bin/phpunit -v --debug --strict-coverage --colors=always",
+        "test": [
+            "@phpunit",
+            "@cs"
+        ]
+    }
+}
