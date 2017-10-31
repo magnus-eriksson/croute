@@ -39,11 +39,11 @@ class Croute
      */
     public function addPath($path)
     {
-        if (is_string($paths)) {
-            $paths = [$paths];
+        if (is_string($path)) {
+            $path = [$path];
         }
 
-        $this->paths = array_merge($this->paths, $paths);
+        $this->paths = array_merge($this->paths, $path);
 
         return $this;
     }
@@ -81,6 +81,11 @@ class Croute
     {
         if (!file_exists($path)) {
             return [];
+        }
+
+        if (is_file($path)) {
+            // It's a file, parse it directly
+            return (new ClassParser($path))->getRoutes();
         }
 
         $di     = new RecursiveDirectoryIterator($path);

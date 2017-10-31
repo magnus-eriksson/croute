@@ -1,22 +1,22 @@
 <?php namespace MaerTest\Testing;
 
 /**
- * @routePrefix /before
- * @routeBefore helloBefore
- * @routeAfter  helloAfter
+ * @routePrefix /namespace
+ * @routeBefore classBefore
+ * @routeAfter  classfter
  */
 class NamespaceController
 {
     /**
      * @route GET /
-     * @routeName get.index
+     * @routeName namespace.index
      * @routeBefore getIndexBefore
      */
     public function getIndex() {}
 
     /**
      * @route POST /root
-     * @routeName post.root
+     * @routeName namespace.root
      * @routeAfter postIndexAfter
      */
     public function postRoot() {}

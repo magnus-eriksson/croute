@@ -1,15 +1,7 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
 require __DIR__ . '/Controllers/RootController.php';
+require __DIR__ . '/Controllers/NamespaceController.php';
 
-function dd(...$args)
-{
-    echo PHP_EOL;
-    echo ' ' . PHP_EOL;
-    echo PHP_EOL;
-    var_dump(...$args);
-    echo PHP_EOL;
-    echo ' ' . PHP_EOL;
-    echo PHP_EOL;
-    exit;
-}
+define('ROOT_CLASS', __DIR__ . '/Controllers/RootController.php');
+define('NAMESPACE_CLASS', __DIR__ . '/Controllers/NamespaceController.php');

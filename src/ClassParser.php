@@ -124,7 +124,7 @@ class ClassParser
     protected function getAnnotations($type, Reflector $class)
     {
         $comments = $class->getDocComment();
-        preg_match_all('/\@(\w+)\s+([^\s]+)\s+([^\s]+)?/i', $comments, $matches);
+        preg_match_all('/\@(\w+)\s+([^\s]+)\s+([^\*\s]+)?/i', $comments, $matches);
 
         if (empty($matches[1])) {
             return [];
@@ -148,7 +148,7 @@ class ClassParser
                 continue;
             }
 
-            if ('route' == $key && isset($matches[3][$index])) {
+            if ('route' == $key && !empty($matches[3][$index])) {
                 $annotations['route']  .= '/' . ltrim($matches[3][$index], '/');
                 $annotations['method']  = $value;
                 continue;
@@ -167,6 +167,10 @@ class ClassParser
             if ('before' == $key || 'after' == $key) {
                 $annotations[$key][] = $value;
             }
+        }
+
+        if ('method' == $type) {
+            return !empty($annotations['method']) ? $annotations : [];
         }
 
         return $annotations;
