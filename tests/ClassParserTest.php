@@ -97,6 +97,22 @@ class ClassParserTest extends TestCase
 
 
     /**
+    * @covers ::getRoutes()
+    */
+    public function testClassParserCallback()
+    {
+        // Root class
+        $routes  = $this->routes(ROOT_CLASS);
+        $this->assertEquals('RootController@getIndex', $routes[0]->callback, 'Invalid root callback 1');
+        $this->assertEquals('RootController@postRoot', $routes[1]->callback, 'Invalid root callback 2');
+
+        // Namespace class
+        $routes  = $this->routes(NAMESPACE_CLASS);
+        $this->assertEquals('MaerTest\Testing\NamespaceController@getIndex', $routes[0]->callback, 'Invalid namespace callback 1');
+        $this->assertEquals('MaerTest\Testing\NamespaceController@postRoot', $routes[1]->callback, 'Invalid namespace callback 2');
+    }
+
+    /**
      * Get a class route
      *
      * @param  string $file

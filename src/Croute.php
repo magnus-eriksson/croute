@@ -52,11 +52,12 @@ class Croute
     /**
      * Get routes from the regiestered paths
      *
+     * @param  boolean $regenerate Regenerate all routes
      * @return array
      */
-    public function getRoutes()
+    public function getRoutes($regenerate = false)
     {
-        if (is_null($this->routes)) {
+        if ($regenerate === true || is_null($this->routes)) {
             $this->routes = [];
 
             foreach ($this->paths as $path) {

@@ -1,6 +1,6 @@
 {
     "name": "maer/croute",
-    "description": "Declare routes using class annotations",
+    "description": "Define routes using class annotations",
     "license": "MIT",
     "authors": [
         {
